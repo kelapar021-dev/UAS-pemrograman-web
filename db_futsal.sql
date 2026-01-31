@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2026 at 06:07 PM
+-- Generation Time: Jan 31, 2026 at 07:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -190,13 +190,6 @@ CREATE TABLE `gaji_pegawai` (
   `status_bayar` enum('Lunas','Belum Lunas') DEFAULT 'Belum Lunas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `gaji_pegawai`
---
-
-INSERT INTO `gaji_pegawai` (`id_gaji`, `id_pegawai`, `bulan`, `tahun`, `gaji`, `bonus`, `potongan`, `total_gaji`, `tanggal_bayar`, `status_bayar`) VALUES
-(1, 1, 'Februari', 2026, 5000000.00, 0.00, 0.00, 5000000.00, '2026-02-01', 'Lunas');
-
 -- --------------------------------------------------------
 
 --
@@ -302,8 +295,21 @@ CREATE TABLE `paket` (
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`, `durasi_jam`, `harga_paket`, `deskripsi`) VALUES
-(1, 'Paket Hemat Pagi', 1, 100000.00, 'Main santai jam 8-12'),
-(2, 'Paket Malam Member', 2, 250000.00, 'Main seru jam 18-22');
+(1, 'Paket 2 Jam - Siang Futsal', 2, 150000.00, 'Paket bermain futsal 2 jam di waktu siang'),
+(2, 'Paket 2 Jam - Malam Futsal', 2, 250000.00, 'Paket bermain futsal 2 jam di waktu malam'),
+(3, 'Paket 3 Jam - Siang Futsal', 3, 225000.00, 'Paket bermain futsal 3 jam di waktu siang'),
+(4, 'Paket 3 Jam - Malam Futsal', 3, 375000.00, 'Paket bermain futsal 3 jam di waktu malam'),
+(5, 'Paket 2 Jam - Siang Minisoccer', 2, 300000.00, 'Paket bermain minisoccer 2 jam di waktu siang'),
+(6, 'Paket 2 Jam - Malam Minisoccer', 2, 600000.00, 'Paket bermain minisoccer 2 jam di waktu malam'),
+(7, 'Paket 3 Jam - Siang Minisoccer', 3, 450000.00, 'Paket bermain minisoccer 3 jam di waktu siang'),
+(8, 'Paket 3 Jam - Malam Minisoccer', 3, 900000.00, 'Paket bermain minisoccer 3 jam di waktu malam'),
+(9, 'Paket Weekend 2 Jam - Futsal', 2, 200000.00, 'Paket bermain futsal 2 jam di hari weekend'),
+(10, 'Paket Weekend 2 Jam - Minisoccer', 2, 350000.00, 'Paket bermain minisoccer 2 jam di hari weekend'),
+(11, 'Paket Malam Promo Futsal 2 Jam', 2, 200000.00, 'Paket promo bermain futsal 2 jam di waktu malam'),
+(12, 'Paket Malam Promo Minisoccer 2 Jam', 2, 500000.00, 'Paket promo bermain minisoccer 2 jam di waktu malam'),
+(13, 'Paket Bulanan Futsal 8 Sesi', 8, 1000000.00, 'Paket bulanan bermain futsal 8 sesi'),
+(14, 'Paket Bulanan Minisoccer 8 Sesi', 8, 2000000.00, 'Paket bulanan bermain minisoccer 8 sesi'),
+(15, 'Paket Antar Sesi 1 Jam', 1, 80000.00, 'Paket bermain antar sesi 1 jam');
 
 -- --------------------------------------------------------
 
@@ -327,7 +333,23 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama_pegawai`, `no_hp`, `jabatan`, `gaji_pokok`, `tanggal_masuk`, `status`, `created_at`) VALUES
-(1, 'Joko Susilo', '083456789012', 'Manager', 5000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29');
+(1, 'Ahmad Faisal', '081234500001', 'Manajer Lapangan', 5000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(2, 'Siti Rahma', '081234500002', 'Kasir', 3500000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(3, 'Budi Santoso', '081234500003', 'Petugas Kebersihan & Maintenance', 3000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(4, 'Rina Dewi', '081234500004', 'Petugas Kebersihan & Maintenance', 3000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(5, 'Anton Wijaya', '081234500005', 'Penjaga Lapangan & Pengawas', 3200000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(6, 'Linda Sari', '081234500006', 'Customer Service / Booking', 3500000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(7, 'Dedi Permana', '081234500007', 'Teknisi Lapangan', 3200000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(8, 'Maya Putri', '081234500008', 'Penjadwalan & Booking', 3500000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(9, 'Joko Susilo', '081234500009', 'Satpam / Keamanan', 3000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(10, 'Wulan Nur', '081234500010', 'Administrasi & Kasir', 3500000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(11, 'Fajar Nugroho', '081234500011', 'Petugas Kebersihan & Maintenance', 3000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(12, 'Rina Putri', '081234500012', 'Staf Administrasi & Akuntansi', 3800000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(13, 'Sandi Pratama', '081234500013', 'Penjaga Lapangan', 3200000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(14, 'Dewi Listiani', '081234500014', 'Customer Support / Receptionist', 3500000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(15, 'Rizky Hidayat', '081234500015', 'Teknisi / Maintenance', 3200000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(16, 'karin octavia', '083845324567', 'istri pemilik lapang', 9000000.00, '2023-01-10', 'Aktif', '2026-01-31 16:13:29'),
+(17, 'karin octavia', '085321346578', 'istri pemilik lapangan', 300000000.00, '0000-00-00', 'Aktif', '2026-01-31 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -402,6 +424,27 @@ CREATE TABLE `peralatan` (
   `kondisi` enum('Baik','Rusak','Maintenance') DEFAULT 'Baik'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `peralatan`
+--
+
+INSERT INTO `peralatan` (`id_peralatan`, `nama_alat`, `jenis_alat`, `stok_tersedia`, `harga_sewa_per_hari`, `kondisi`) VALUES
+(1, 'bola futsal', 'olahraga', 10, 5000.00, 'Baik'),
+(2, 'sarung tangan kiper', 'olahraga', 8, 10000.00, 'Baik'),
+(3, 'rompi biru', 'olahraga', 15, 3000.00, 'Baik'),
+(4, 'rompi putih', 'olahraga', 15, 3000.00, ''),
+(5, 'pel', 'kebersihan', 6, 5000.00, 'Rusak'),
+(6, 'konus latihan', 'olahraga', 20, 2000.00, 'Baik'),
+(7, 'bola minisoccer', 'olahraga', 8, 8000.00, ''),
+(8, 'pelindung kaki', 'olahraga', 6, 15000.00, 'Baik'),
+(9, 'pompa', 'alat', 4, 3000.00, ''),
+(10, 'baju wasit', 'pakaian', 12, 7000.00, 'Baik'),
+(11, 'peluit wasit', 'alat', 2, 5000.00, ''),
+(12, 'timer pertandingan', 'elektronik', 1, 20000.00, 'Baik'),
+(13, 'tandu cedera', 'medis', 1, 50000.00, ''),
+(14, 'pentil bola', 'alat', 30, 1000.00, 'Baik'),
+(15, 'kotak P3K', 'medis', 1, 10000.00, '');
+
 -- --------------------------------------------------------
 
 --
@@ -473,6 +516,43 @@ CREATE TABLE `tarif` (
   `nama_tarif` varchar(100) NOT NULL,
   `jenis_hari` enum('Weekday','Weekend') NOT NULL,
   `harga_per_jam` decimal(12,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tarif`
+--
+
+INSERT INTO `tarif` (`id_tarif`, `nama_tarif`, `jenis_hari`, `harga_per_jam`) VALUES
+(3, 'miniso siang', 'Weekday', 300000.00),
+(4, 'miniso malam', 'Weekday', 600000.00),
+(5, 'futsal weekend siang', 'Weekend', 175000.00),
+(6, 'futsal weekend malam', 'Weekend', 275000.00),
+(7, 'miniso weekend siang', 'Weekend', 320000.00),
+(8, 'miniso weekend malam', 'Weekend', 650000.00),
+(9, 'futsal midweek siang', 'Weekday', 140000.00),
+(10, 'futsal midweek malam', 'Weekday', 240000.00),
+(11, 'miniso midweek siang', 'Weekday', 290000.00),
+(12, 'miniso midweek malam', 'Weekday', 580000.00),
+(13, 'futsal promo siang', '', 120000.00),
+(14, 'miniso promo siang', '', 250000.00),
+(15, 'miniso promo malam', '', 500000.00),
+(16, 'Futsal Siang', 'Weekday', 200000.00),
+(17, 'futsal malam', 'Weekday', 250000.00),
+(18, 'futsal sore', 'Weekday', 200000.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi_pembayaran`
+--
+
+CREATE TABLE `transaksi_pembayaran` (
+  `id_transaksi` int(11) NOT NULL,
+  `id_booking` int(11) NOT NULL,
+  `tanggal_bayar` date NOT NULL,
+  `total_bayar` decimal(12,2) NOT NULL,
+  `metode_bayar` enum('Tunai','Transfer','Kartu Kredit','E-Wallet') NOT NULL,
+  `status_bayar` enum('Lunas','Belum Lunas','DP') DEFAULT 'Belum Lunas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -599,6 +679,12 @@ ALTER TABLE `tarif`
   ADD PRIMARY KEY (`id_tarif`);
 
 --
+-- Indexes for table `transaksi_pembayaran`
+--
+ALTER TABLE `transaksi_pembayaran`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -660,13 +746,13 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
@@ -684,7 +770,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `peralatan`
 --
 ALTER TABLE `peralatan`
-  MODIFY `id_peralatan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sewa_alat`
@@ -702,7 +788,13 @@ ALTER TABLE `sewa_peralatan`
 -- AUTO_INCREMENT for table `tarif`
 --
 ALTER TABLE `tarif`
-  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `transaksi_pembayaran`
+--
+ALTER TABLE `transaksi_pembayaran`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
